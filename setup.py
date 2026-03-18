@@ -4,7 +4,6 @@ from setuptools.command.build_py import build_py
 
 sqlite_files = ['veering_16.sqlite']
 
-
 def check_call(args):
     try:
         subprocess.check_call(args)
