@@ -26,61 +26,21 @@ def get_tables(ManifoldTable):
     """
 
     class VeeringCensus(ManifoldTable):
-        """ 
+        """
         Iterator for all veering triangulations with up to 16 tetrahedra.
         """
-        
-        _regex = re.compile(r'([msvt])([0-9]+)$|o([0-9]+)_([0-9]+)$')
-        
+
+        # ISSUE: current names might overlap with decorated isosigs.
+        _regex = re.compile(r'([a-zA-Z]_[012]+)$')
+        _select = 'select name, triangulation from %s '
+
         def __init__(self, **kwargs):
-            ManifoldTable.__init__(self, table = 'veering_16_view',
-                                   db_path = original_database_path, **kwargs)
-
-            view_name = 'veering_16_view'
-
-            conn = self._connection
-            cursor = conn.cursor()
-            
-            # Dictionary specifying tables to append
-            # Keys: paths of databases -> Values: tables contained by given databases
-            # All tables specified will be appended to the view <view_name>
-            sql_dict = {
-                database_path : ['veering_16']
-            }
-
-            table_dict = dict() 
-            # records the aliases of databases containing a given table
-            alias_dict = dict() 
-            # records the alias of a given database file (1-to-1)
-
-
-            for i, sql_path in enumerate(sql_dict.keys(), start = 1):
-                alias = f'db{i}'
-                alias_dict.update({sql_path : alias})
-
-                for table_name in sql_dict[sql_path]:
-                    if table_name not in table_dict.keys():
-                        table_dict.update({table_name : [alias]})
-                    else:
-                        table_dict.update({table_name : table_dict[table_name] + [alias]})
-
-                cursor.execute('ATTACH DATABASE ? AS ?', (sql_path, alias))
-
-            select_statements = [f'SELECT * FROM {self._table}']
-            for table_name in table_dict.keys():
-                for alias in table_dict[table_name]:
-                    select_statements.append(f"SELECT * FROM {alias}.{table_name}")
-            union_query = ' UNION ALL '.join(select_statements)
-
-            create_view_sql = f"CREATE TEMPORARY VIEW {view_name} AS {union_query}"
-            cursor.execute(create_view_sql)
-            cursor.close()
-
-            self._table = view_name
-            self._select = f'select name, triangulation from {view_name} '
-
-            self._get_length()
-            self._get_max_volume()
+            return ManifoldTable.__init__(self,
+                                         table='veering_16_view',
+                                         db_path=database_path,
+                                         **kwargs)
+        def _finalize(self, M, row):
+            M.set_name(row[0])
 
     return [VeeringCensus()]
 
