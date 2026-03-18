@@ -104,6 +104,8 @@ version = re.search("__version__ = '(.*)'",
 setup(
     name = 'veering_16',
     version = version,
+    long_description_content_type="text/x-rst",
+    long_description="README.rst",
     packages = ['veering_16', 'veering_16/sqlite_files'],
     package_dir = {'veering_16':'python_src',
                    'veering_16/sqlite_files':'manifold_src'},
