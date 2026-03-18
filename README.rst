@@ -1,5 +1,8 @@
-The database for transverse veering triangulations with up to 16 tetrahedra
-===========================================================================
+Database of transverse veering triangulations up to 16 tetrahedra
+=================================================================
+
+.. role:: raw-html(raw)
+    :format: html
 
 ..  NOTE: The data in this repository has been merged into `snappy_manifolds <https://github.com/3-manifolds/snappy_manifolds>`_ version 1.4,
 ..  which automatically comes with SnapPy 3.3. Hence there is no need to install this module for anyone with SnapPy>=3.3. 
@@ -9,9 +12,11 @@ This repository contains the manifold database of all transverse
 veering triangulations with at most sixteen tetrahedra.
 The data is also available here:
 
-|  Andreas Giannopoulos, Saul Schleimer and Henry Segerman.
-|  A census of veering structures. 
-|  `https://math.okstate.edu/people/segerman/veering.html <https://math.okstate.edu/people/segerman/veering.html>`_, 2019.
+  Andreas Giannopoulos, Saul Schleimer and Henry Segerman.
+  :raw-html:`<br />`
+  A census of veering structures. 
+  :raw-html:`<br />`
+  `https://math.okstate.edu/people/segerman/veering.html <https://math.okstate.edu/people/segerman/veering.html>`_, 2019.
 
 To install the module in SageMath::
 
