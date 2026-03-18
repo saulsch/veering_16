@@ -9,9 +9,9 @@ This repository contains the manifold database of all transverse
 veering triangulations with at most sixteen tetrahedra.
 The data is also available here:
 
-  Andreas Giannopoulos, Saul Schleimer and Henry Segerman. \
-  A census of veering structures. 
-  `https://math.okstate.edu/people/segerman/veering.html <https://math.okstate.edu/people/segerman/veering.html>`_, 2019.
+|  Andreas Giannopoulos, Saul Schleimer and Henry Segerman.
+|  A census of veering structures. 
+|  `https://math.okstate.edu/people/segerman/veering.html <https://math.okstate.edu/people/segerman/veering.html>`_, 2019.
 
 To install the module in SageMath::
 
