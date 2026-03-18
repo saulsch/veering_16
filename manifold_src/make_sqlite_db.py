@@ -102,4 +102,4 @@ if __name__ == '__main__':
         with sqlite3.connect(manifold_db) as connection:
             for tablename, args in manifold_data.items():
                 make_table(connection, tablename, **args)
-            connection.execute(" create view veering_census_view as select * from veering_census ")
+            connection.execute(f" create view {tablename}_view as select * from {tablename} ")

@@ -1,6 +1,6 @@
 [build-system]
 requires = [
-    "setuptools>=59",
+    "setuptools>=77.0.3", 
 ]
 build-backend = "setuptools.build_meta"
 
@@ -23,9 +23,13 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Mathematics",
 ]
 dynamic = ["version"]
+dependencies = [
+    "snappy_manifolds>=1.4"
+]
 
 [project.urls]
 Homepage = "https://github.com/saulsch/veering_16"
+Repository = "https://github.com/saulsch/veering_16.git"
 
 [tool.setuptools.dynamic]
 version = {attr = "veering_16.__version__"}

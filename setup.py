@@ -109,6 +109,7 @@ setup(
     package_dir = {'veering_16':'python_src',
                    'veering_16/sqlite_files':'manifold_src'},
     package_data = {'veering_16/sqlite_files': sqlite_files},
+    install_requires = ['snappy_manifolds>=1.4'],
     ext_modules = [],
     zip_safe = False,
     cmdclass = {'release': Release,
