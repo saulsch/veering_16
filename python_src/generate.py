@@ -13,7 +13,7 @@ cen = veering.veering_census()
 
 def csv_line(id, veer_sig):
     # id, name, cusps, betti, torsion, volume, chernsimons, tets, hash, triangulation, angles               
-    data = [str(id), "vt" + str(id - 1)]
+    data = [str(id), "veer" + str(id - 1)]
     sig, angles = veer_sig.split('_')
     M = snappy.Manifold(sig)
     data.append(str(M.num_cusps()))
