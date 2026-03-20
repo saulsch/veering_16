@@ -23,7 +23,8 @@ schema_types = {
     'chernsimons': 'real',
     'tets': 'int', 
     'hash': 'text',
-    'triangulation': 'text'
+    'triangulation': 'text',
+    'angles': 'text',
 }
 
 

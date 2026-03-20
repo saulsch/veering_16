@@ -31,10 +31,9 @@ def get_tables(ManifoldTable):
         """
 
         # ISSUE: current names might overlap with decorated isosigs.
-        # 2026-03-19: Addess this by moving to the names vt[0-9]+ 
-#        _regex = re.compile(r'([a-zA-Z]_[012]+)$')
-        _regex = re.compile(r'vt[0-9]+)$')
-        _select = 'select name, triangulation from %s '
+        # 2026-03-19: Address this by moving to the names vt[0-9]+
+        _regex = re.compile(r'(vt[0-9]+)$')
+        _select = 'select name, triangulation, angles from %s '
 
         def __init__(self, **kwargs):
             return ManifoldTable.__init__(self,
@@ -43,6 +42,7 @@ def get_tables(ManifoldTable):
                                          **kwargs)
         def _finalize(self, M, row):
             M.set_name(row[0])
+            M.angles = row[2]
 
     return [VeeringCensus()]
 
