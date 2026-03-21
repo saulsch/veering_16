@@ -31,7 +31,7 @@ def get_tables(ManifoldTable):
         """
 
         # ISSUE: current names might overlap with decorated isosigs.
-        # 2026-03-19: Address this by moving to the names vt[0-9]+
+        # 2026-03-20: Address this by moving to the names veer[0-9]+
         _regex = re.compile(r'(veer[0-9]+)$')
         _select = 'select name, triangulation, angles from %s '
 
